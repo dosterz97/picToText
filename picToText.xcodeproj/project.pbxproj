@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B02591E8C2D554BA54B68FD /* Pods_picToText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80EAE4A283811D85F22F4E2 /* Pods_picToText.framework */; };
-		7F5A6842B9406F9396D206E2 /* Pods_picToTextTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA8C911858764484ADD94CBA /* Pods_picToTextTests.framework */; };
-		A203623C56856DDA1C434D2F /* Pods_picToText_picToTextUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC94578E4606414CDB2D22B /* Pods_picToText_picToTextUITests.framework */; };
+		3B02591E8C2D554BA54B68FD /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		7F5A6842B9406F9396D206E2 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		A203623C56856DDA1C434D2F /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B6227E0A237663830041C864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E09237663830041C864 /* AppDelegate.swift */; };
 		B6227E0C237663830041C864 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E0B237663830041C864 /* ViewController.swift */; };
 		B6227E11237663840041C864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6227E10237663840041C864 /* Assets.xcassets */; };
 		B6227E1F237663840041C864 /* picToTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E1E237663840041C864 /* picToTextTests.swift */; };
 		B6227E2A237663840041C864 /* picToTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E29237663840041C864 /* picToTextUITests.swift */; };
+		B6227E4223768BF50041C864 /* ImageToTextClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4123768BF50041C864 /* ImageToTextClient.swift */; };
+		B6227E4623768C0B0041C864 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4323768C0B0041C864 /* CameraViewController.swift */; };
+		B6227E4723768C0B0041C864 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4423768C0B0041C864 /* ResultsViewController.swift */; };
+		B6227E4823768C0B0041C864 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4523768C0B0041C864 /* APIModels.swift */; };
+		B6227E4A23768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		B6227E25237663840041C864 /* picToTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picToTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6227E29237663840041C864 /* picToTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picToTextUITests.swift; sourceTree = "<group>"; };
 		B6227E2B237663840041C864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6227E4123768BF50041C864 /* ImageToTextClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToTextClient.swift; sourceTree = "<group>"; };
+		B6227E4323768C0B0041C864 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		B6227E4423768C0B0041C864 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B6227E4523768C0B0041C864 /* APIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
+		B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; path = "Assets.xcassets/GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B02591E8C2D554BA54B68FD /* Pods_picToText.framework in Frameworks */,
+				3B02591E8C2D554BA54B68FD /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F5A6842B9406F9396D206E2 /* Pods_picToTextTests.framework in Frameworks */,
+				7F5A6842B9406F9396D206E2 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A203623C56856DDA1C434D2F /* Pods_picToText_picToTextUITests.framework in Frameworks */,
+				A203623C56856DDA1C434D2F /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,9 +95,6 @@
 		841267162A7458B113EE16EB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D80EAE4A283811D85F22F4E2 /* Pods_picToText.framework */,
-				BBC94578E4606414CDB2D22B /* Pods_picToText_picToTextUITests.framework */,
-				FA8C911858764484ADD94CBA /* Pods_picToTextTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,10 +123,14 @@
 		B6227E08237663830041C864 /* picToText */ = {
 			isa = PBXGroup;
 			children = (
+				B6227E4523768C0B0041C864 /* APIModels.swift */,
+				B6227E4323768C0B0041C864 /* CameraViewController.swift */,
+				B6227E4423768C0B0041C864 /* ResultsViewController.swift */,
+				B6227E4123768BF50041C864 /* ImageToTextClient.swift */,
 				B6227E09237663830041C864 /* AppDelegate.swift */,
 				B6227E0B237663830041C864 /* ViewController.swift */,
 				B6227E10237663840041C864 /* Assets.xcassets */,
-				B6227E372376706C0041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */,
+				B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */,
 				B6227E15237663840041C864 /* Info.plist */,
 			);
 			path = picToText;
@@ -267,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6227E11237663840041C864 /* Assets.xcassets in Resources */,
-				B6227E382376706C0041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */,
+				B6227E4A23768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,12 +406,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6227E3E23767C6A0041C864 /* APIModels.swift in Sources */,
-				B6227E3C23767A0D0041C864 /* ImageToTextClient.swift in Sources */,
+				B6227E4823768C0B0041C864 /* APIModels.swift in Sources */,
+				B6227E4223768BF50041C864 /* ImageToTextClient.swift in Sources */,
+				B6227E4623768C0B0041C864 /* CameraViewController.swift in Sources */,
 				B6227E0C237663830041C864 /* ViewController.swift in Sources */,
+				B6227E4723768C0B0041C864 /* ResultsViewController.swift in Sources */,
 				B6227E0A237663830041C864 /* AppDelegate.swift in Sources */,
-				FDE5956723766F62001F04AE /* CameraViewController.swift in Sources */,
-				FD0CC688237683870068F5FC /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

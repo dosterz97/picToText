@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         let imageView = UIImageView(frame: view.frame)
         imageView.image = self.testImage
         
-        self.navigationController!.pushViewController(CameraViewController(), animated: true)
+//        self.navigationController!.pushViewController(CameraViewController(), animated: true)
 //        detectTextBox(for: self.testImage)
         // Do any additional setup after loading the view.
     }
