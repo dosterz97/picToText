@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         self.view.backgroundColor = .red
 
         let image = UIImage(named: "GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg")!
-        self.testImage = resize(image: image, to: view.frame.size) ?? image
+     //   self.testImage = resize(image: image, to: view.frame.size) ?? image
         
         let imageView = UIImageView(frame: view.frame)
         imageView.image = self.testImage

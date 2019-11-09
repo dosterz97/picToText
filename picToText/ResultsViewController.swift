@@ -18,6 +18,7 @@ class ResultsViewController: UIViewController {
  //       if annotations[0] && annotations[0].text {
             self.fullMessage = annotations[0].text
    //     }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,6 +40,7 @@ class ResultsViewController: UIViewController {
         
         let textView = UITextView.init()
         view.addSubview(textView)
+        textView.isEditable = false 
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.backgroundColor = .darkGray
         textView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -46,7 +48,7 @@ class ResultsViewController: UIViewController {
         textView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         textView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        textView.text = "Hello, world!"
+        textView.text = fullMessage
         textView.textAlignment = .center
     }
     
