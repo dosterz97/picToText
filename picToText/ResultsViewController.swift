@@ -40,15 +40,16 @@ class ResultsViewController: UIViewController {
         
         let textView = UITextView.init()
         view.addSubview(textView)
-        textView.isEditable = false 
+        textView.isEditable = false
+        
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.backgroundColor = .darkGray
+        textView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.5)
         textView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
        // let textVerConstraint = textView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         textView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         textView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        textView.text = fullMessage
+        textView.text = "Results:\n" + fullMessage
         textView.textAlignment = .center
     }
     
