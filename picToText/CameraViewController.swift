@@ -7,24 +7,42 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CameraViewController: UIViewController {
 
+    var captureSession: AVCaptureSession!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        setupCamera()
+
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        captureSession.startRunning()
     }
-    */
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        captureSession.stopRunning()
+    }
+    private func setupCamera() {
+      let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+      var input: AVCaptureDeviceInput
+      do {
+        input = try AVCaptureDeviceInput(device: captureDevice!)
+      } catch {
+        fatalError("Error configuring capture device: \(error)");
+      }
+      captureSession = AVCaptureSession()
+      captureSession.addInput(input)
 
+      // Setup the preview view.
+      let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+      videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+      videoPreviewLayer.frame = view.layer.bounds
+      view.layer.addSublayer(videoPreviewLayer)
+    }
 }

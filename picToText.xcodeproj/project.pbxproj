@@ -12,6 +12,7 @@
 		B6227E11237663840041C864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6227E10237663840041C864 /* Assets.xcassets */; };
 		B6227E1F237663840041C864 /* picToTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E1E237663840041C864 /* picToTextTests.swift */; };
 		B6227E2A237663840041C864 /* picToTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E29237663840041C864 /* picToTextUITests.swift */; };
+		FDE5956723766F62001F04AE /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5956623766F62001F04AE /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		B6227E25237663840041C864 /* picToTextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picToTextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6227E29237663840041C864 /* picToTextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picToTextUITests.swift; sourceTree = "<group>"; };
 		B6227E2B237663840041C864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDE5956623766F62001F04AE /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				B6227E0B237663830041C864 /* ViewController.swift */,
 				B6227E10237663840041C864 /* Assets.xcassets */,
 				B6227E15237663840041C864 /* Info.plist */,
+				FDE5956623766F62001F04AE /* CameraViewController.swift */,
 			);
 			path = picToText;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				B6227E0C237663830041C864 /* ViewController.swift in Sources */,
 				B6227E0A237663830041C864 /* AppDelegate.swift in Sources */,
+				FDE5956723766F62001F04AE /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +410,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8APYS2W8G4;
 				INFOPLIST_FILE = picToText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -423,6 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8APYS2W8G4;
 				INFOPLIST_FILE = picToText/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
