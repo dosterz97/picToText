@@ -1,0 +1,6 @@
+framework module Pods_picToText {
+  umbrella header "Pods-picToText-umbrella.h"
+
+  export *
+  module * { export * }
+}
