@@ -18,7 +18,9 @@ class PhotoGalleryViewController: UIViewController, UINavigationControllerDelega
     func detectTextBox(for image: UIImage) {
         ImageToTextClient().gettext(from: image) { [weak self] result in
             guard let result = result else {
-                fatalError("Did not recognize any text in this image")
+                let annotation = Annotation()
+                annotation.text = "Unable to translate text"
+                self!.loadingVc!.setParams(image: self?.readyImage ?? UIImage(), annotations: [annotation])
             }
 
            // let resultsVc = ResultsViewController(image: self?.readyImage ?? UIImage(), annotations: result.annotations)
