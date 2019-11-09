@@ -14,6 +14,7 @@ class CameraViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var tapRecognizer: UITapGestureRecognizer!
     var capturePhotoOutput: AVCapturePhotoOutput! // NEW
+    var readyImage: UIImage!                        // NEW
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +92,8 @@ extension CameraViewController : AVCapturePhotoCaptureDelegate {
     guard let image = UIImage(data: imageData) else {
       fatalError("Failed to convert image data to UIImage")
     }
-    print(image.size)
+    readyImage = image;
+    let resultsVc = ResultsViewController(image: readyImage)
+    navigationController?.pushViewController(resultsVc, animated: true)
   }
 }
