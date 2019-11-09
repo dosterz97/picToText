@@ -39,6 +39,9 @@ class LoadingViewController: UIViewController {
         self.navigationController?.pushViewController(resultsVc, animated: true)
     }
     
+    @objc func photoButtonPressed(sender: UIButton) {
+        takePhotoVc = CameraViewController().init 
+    }
 
     /*
     // MARK: - Navigation
