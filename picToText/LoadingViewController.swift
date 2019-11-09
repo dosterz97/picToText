@@ -10,6 +10,7 @@ import UIKit
 
 class LoadingViewController: UIViewController {
 
+    var indicator: UIActivityIndicatorView?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -22,10 +23,22 @@ class LoadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+        indicator = UIActivityIndicatorView()
+        view.addSubview(indicator!)
+        indicator!.translatesAutoresizingMaskIntoConstraints = false
+        indicator!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        indicator!.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 10.0).isActive = true
+        indicator!.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25).isActive = true
+        indicator!.heightAnchor.constraint(equalTo: indicator!.widthAnchor).isActive = true
+        indicator!.startAnimating()
+        
         let loadingText = UILabel.init()
         loadingText.textColor = .white
         view.backgroundColor = .gray
         view.addSubview(loadingText)
+        loadingText.font = .boldSystemFont(ofSize: 40.0)
         loadingText.text = "Loading Results..."
         loadingText.translatesAutoresizingMaskIntoConstraints = false
         loadingText.centerXAnchor.constraint(equalTo: view!.centerXAnchor).isActive = true
@@ -36,9 +49,11 @@ class LoadingViewController: UIViewController {
     //TODO: migrate api logic from camera vc to loading screen vc
     public func setParams(image:UIImage, annotations:[Annotation]) {
         let resultsVc = ResultsViewController.init(image: image, annotations: annotations)
+        indicator?.stopAnimating()
         self.navigationController?.pushViewController(resultsVc, animated: true)
     }
     
+
     /*
     // MARK: - Navigation
 
