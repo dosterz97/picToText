@@ -33,10 +33,10 @@ class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
     private func setupCamera() {
-      let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+      let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)!
       var input: AVCaptureDeviceInput
       do {
-        input = try AVCaptureDeviceInput(device: captureDevice!)
+        input = try AVCaptureDeviceInput(device: captureDevice)
       } catch {
         fatalError("Error configuring capture device: \(error)");
       }
@@ -70,7 +70,48 @@ class CameraViewController: UIViewController {
         }
     }
     
+    
+    func detectTextBox(for image: UIImage) {
+        ImageToTextClient().gettext(from: image) { [weak self] result in
+            guard let result = result else {
+                fatalError("Did not recognize any text in this image")
+            }
+
+            let resultsVc = ResultsViewController(image: self?.readyImage ?? UIImage(), annotations: result.annotations)
+
+            self?.navigationController?.pushViewController(resultsVc, animated: true)
+        }
+    }
+    
+    // Taken from http://www.goldsborough.me/swift/ios/app/ml/2018/12/10/20-49-02-using_the_google_cloud_vision_api_for_ocr_in_swift/
+    private func resize(image: UIImage, to targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle.
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSize(width: size.width * heightRatio, height: size.height * heightRatio)
+        } else {
+            newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
+        }
+        
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height + 1)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+
+    
 }
+
+
 extension CameraViewController : AVCapturePhotoCaptureDelegate {
   private func capturePhoto() {
     let photoSettings = AVCapturePhotoSettings()
@@ -93,7 +134,11 @@ extension CameraViewController : AVCapturePhotoCaptureDelegate {
       fatalError("Failed to convert image data to UIImage")
     }
     readyImage = image;
-    let resultsVc = ResultsViewController(image: readyImage)
-    navigationController?.pushViewController(resultsVc, animated: true)
+    
+    let testImage = self.resize(image: image, to: view.frame.size) ?? image
+    
+    let imageView = UIImageView(frame: self.view.frame)
+    imageView.image = testImage
+    detectTextBox(for: testImage)
   }
 }

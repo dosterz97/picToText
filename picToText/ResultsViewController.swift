@@ -9,10 +9,15 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
-
+    var annotations: [Annotation]
+    var fullMessage: String = ""
     var image:UIImage
-    init(image:UIImage) {
+    init(image:UIImage, annotations: [Annotation]) {
         self.image = image
+        self.annotations = annotations
+        if annotations[0] && annotations[0].text {
+            self.fullMessage = annotations[0].text
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
