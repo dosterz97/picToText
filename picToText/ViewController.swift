@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         takePhotoButton?.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8).isActive = true
         takePhotoButton?.topAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         takePhotoButton?.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1).isActive = true
+        takePhotoButton?.addTarget(self, action: #selector(photoButtonPressed(sender:)), for: .touchUpInside)
         
         //setup camera roll button
         viewCameraRollButton?.setTitleColor(.white, for: .normal)
@@ -47,5 +48,9 @@ class ViewController: UIViewController {
         viewCameraRollButton?.centerXAnchor.constraint(equalTo: takePhotoButton!.centerXAnchor).isActive = true
         viewCameraRollButton?.widthAnchor.constraint(equalTo: takePhotoButton!.widthAnchor).isActive = true
         viewCameraRollButton?.heightAnchor.constraint(equalTo: takePhotoButton!.heightAnchor).isActive = true
+    }
+    @objc func photoButtonPressed(sender: UIButton) {
+        //TODO: change this to push the loading v\
+        navigationController?.pushViewController(CameraViewController(), animated: true)
     }
 }
