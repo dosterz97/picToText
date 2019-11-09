@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		B6227E0A237663830041C864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E09237663830041C864 /* AppDelegate.swift */; };
 		B6227E0C237663830041C864 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E0B237663830041C864 /* ViewController.swift */; };
-		B6227E0F237663830041C864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6227E0D237663830041C864 /* Main.storyboard */; };
 		B6227E11237663840041C864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6227E10237663840041C864 /* Assets.xcassets */; };
-		B6227E14237663840041C864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6227E12237663840041C864 /* LaunchScreen.storyboard */; };
 		B6227E1F237663840041C864 /* picToTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E1E237663840041C864 /* picToTextTests.swift */; };
 		B6227E2A237663840041C864 /* picToTextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E29237663840041C864 /* picToTextUITests.swift */; };
 /* End PBXBuildFile section */
@@ -37,9 +35,7 @@
 		B6227E06237663830041C864 /* picToText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = picToText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6227E09237663830041C864 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6227E0B237663830041C864 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B6227E0E237663830041C864 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6227E10237663840041C864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B6227E13237663840041C864 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6227E15237663840041C864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6227E1A237663840041C864 /* picToTextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picToTextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6227E1E237663840041C864 /* picToTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picToTextTests.swift; sourceTree = "<group>"; };
@@ -79,7 +75,6 @@
 			children = (
 				B6227E08237663830041C864 /* picToText */,
 				B6227E1D237663840041C864 /* picToTextTests */,
-				B6227E28237663840041C864 /* picToTextUITests */,
 				B6227E07237663830041C864 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -99,9 +94,7 @@
 			children = (
 				B6227E09237663830041C864 /* AppDelegate.swift */,
 				B6227E0B237663830041C864 /* ViewController.swift */,
-				B6227E0D237663830041C864 /* Main.storyboard */,
 				B6227E10237663840041C864 /* Assets.xcassets */,
-				B6227E12237663840041C864 /* LaunchScreen.storyboard */,
 				B6227E15237663840041C864 /* Info.plist */,
 			);
 			path = picToText;
@@ -112,6 +105,7 @@
 			children = (
 				B6227E1E237663840041C864 /* picToTextTests.swift */,
 				B6227E20237663840041C864 /* Info.plist */,
+				B6227E28237663840041C864 /* picToTextUITests */,
 			);
 			path = picToTextTests;
 			sourceTree = "<group>";
@@ -229,9 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6227E14237663840041C864 /* LaunchScreen.storyboard in Resources */,
 				B6227E11237663840041C864 /* Assets.xcassets in Resources */,
-				B6227E0F237663830041C864 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,25 +283,6 @@
 			targetProxy = B6227E26237663840041C864 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B6227E0D237663830041C864 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6227E0E237663830041C864 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B6227E12237663840041C864 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B6227E13237663840041C864 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B6227E2C237663840041C864 /* Debug */ = {
