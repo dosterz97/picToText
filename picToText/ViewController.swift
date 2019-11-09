@@ -10,13 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     var testImage = UIImage()
+    var titleLabel: UILabel?
     var takePhotoButton: UIButton?
     var viewCameraRollButton: UIButton?
-    var titleLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .gray
+        titleLabel = UILabel.init()
         takePhotoButton = UIButton.init(type: .roundedRect)
         viewCameraRollButton = UIButton.init(type: .roundedRect)
         setupViews()
@@ -25,6 +26,18 @@ class ViewController: UIViewController {
     func setupViews() {
         view.addSubview(takePhotoButton!)
         view.addSubview(viewCameraRollButton!)
+        view.addSubview(titleLabel!)
+        
+        //setup title
+        titleLabel?.text = "Pics-2-Text"
+        titleLabel?.textAlignment = .center
+        titleLabel?.font = .boldSystemFont(ofSize: 40.0)
+        titleLabel?.textColor = .white
+        titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        titleLabel?.bottomAnchor.constraint(equalTo: view.centerYAnchor, constant: -5.0).isActive = true
+        titleLabel?.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+        titleLabel?.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).isActive = true
         
         //setup photo button
         takePhotoButton?.setTitleColor(.white, for: .normal)
