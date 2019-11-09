@@ -36,6 +36,18 @@ class ResultsViewController: UIViewController {
         let heightConstraint = imageView.heightAnchor.constraint(equalTo: view.heightAnchor)
         NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
         // Do any additional setup after loading the view.
+        
+        let textView = UITextView.init()
+        view.addSubview(textView)
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.backgroundColor = .darkGray
+        textView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+       // let textVerConstraint = textView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        textView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        textView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        textView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        textView.text = "Hello, world!"
+        textView.textAlignment = .center
     }
     
 

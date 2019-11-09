@@ -11,6 +11,8 @@ import AVFoundation
 
 class CameraViewController: UIViewController {
 
+    var captureButton: UIButton!
+    var artView: UIView!
     var captureSession: AVCaptureSession!
     var tapRecognizer: UITapGestureRecognizer!
     var capturePhotoOutput: AVCapturePhotoOutput! // NEW
@@ -20,7 +22,7 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupCamera()
-        setupTapRecognizer()
+      //  setupTapRecognizer()
         setupPhotoOutput() // NEW
     }
 
@@ -33,21 +35,38 @@ class CameraViewController: UIViewController {
         captureSession.stopRunning()
     }
     private func setupCamera() {
-      let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)!
-      var input: AVCaptureDeviceInput
-      do {
-        input = try AVCaptureDeviceInput(device: captureDevice)
-      } catch {
-        fatalError("Error configuring capture device: \(error)");
-      }
-      captureSession = AVCaptureSession()
-      captureSession.addInput(input)
+        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        var input: AVCaptureDeviceInput
+        do {
+            input = try AVCaptureDeviceInput(device: captureDevice!)
+        } catch {
+            fatalError("Error configuring capture device: \(error)");
+        }
+        captureSession = AVCaptureSession()
+        captureSession.addInput(input)
 
-      // Setup the preview view.
-      let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-      videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-      videoPreviewLayer.frame = view.layer.bounds
-      view.layer.addSublayer(videoPreviewLayer)
+        // Setup the preview view.
+        let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        videoPreviewLayer.frame = view.layer.bounds
+        view.layer.addSublayer(videoPreviewLayer)
+        
+        //configure capture button
+        captureButton = UIButton.init(type: .system)
+        
+        captureButton.backgroundColor = .gray
+        captureButton.layer.cornerRadius = 37
+        captureButton.layer.masksToBounds = true
+     
+        view.addSubview(captureButton)
+
+        captureButton.translatesAutoresizingMaskIntoConstraints = false
+        captureButton.addTarget(self, action: #selector(handleTap(sender:)), for: .touchUpInside)
+        captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        captureButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10.0).isActive = true
+        captureButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2).isActive = true
+        captureButton.heightAnchor.constraint(equalTo: captureButton.widthAnchor).isActive = true
+        
     }
     
     private func setupPhotoOutput() {
@@ -56,18 +75,16 @@ class CameraViewController: UIViewController {
         captureSession.addOutput(capturePhotoOutput)
     }
     
-    private func setupTapRecognizer() {
-        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        tapRecognizer?.numberOfTouchesRequired = 1
-        tapRecognizer?.numberOfTouchesRequired = 1
-        view.addGestureRecognizer(tapRecognizer)
-    }
+//    private func setupTapRecognizer() {
+//        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+//        tapRecognizer?.numberOfTouchesRequired = 1
+//        tapRecognizer?.numberOfTouchesRequired = 1
+//        view.addGestureRecognizer(tapRecognizer)
+//    }
     
     
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            capturePhoto()
-        }
+    @objc func handleTap(sender: UIButton) {
+        capturePhoto()
     }
     
     
