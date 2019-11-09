@@ -19,7 +19,8 @@
 		B6227E4623768C0B0041C864 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4323768C0B0041C864 /* CameraViewController.swift */; };
 		B6227E4723768C0B0041C864 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4423768C0B0041C864 /* ResultsViewController.swift */; };
 		B6227E4823768C0B0041C864 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4523768C0B0041C864 /* APIModels.swift */; };
-		B6227E4A23768C280041C864 /* CUSTOM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6227E4923768C280041C864 /* CUSTOM.jpg */; };
+		B6227E4A23768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */; };
+		FDE2B211237743C100E04BFD /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2B210237743C100E04BFD /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,8 @@
 		B6227E4323768C0B0041C864 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B6227E4423768C0B0041C864 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		B6227E4523768C0B0041C864 /* APIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
-		B6227E4923768C280041C864 /* CUSTOM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = CUSTOM.jpg; path = Assets.xcassets/CUSTOM.jpg; sourceTree = "<group>"; };
+		B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; path = "Assets.xcassets/GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; sourceTree = "<group>"; };
+		FDE2B210237743C100E04BFD /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				B6227E10237663840041C864 /* Assets.xcassets */,
 				B6227E4923768C280041C864 /* CUSTOM.jpg */,
 				B6227E15237663840041C864 /* Info.plist */,
+				FDE2B210237743C100E04BFD /* LoadingViewController.swift */,
 			);
 			path = picToText;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDE2B211237743C100E04BFD /* LoadingViewController.swift in Sources */,
 				B6227E4823768C0B0041C864 /* APIModels.swift in Sources */,
 				B6227E4223768BF50041C864 /* ImageToTextClient.swift in Sources */,
 				B6227E4623768C0B0041C864 /* CameraViewController.swift in Sources */,

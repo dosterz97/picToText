@@ -13,7 +13,8 @@ class CameraViewController: UIViewController {
 
     var captureButton: UIButton!
     var artView: UIView!
-    var captureSession: AVCaptureSession?
+    var loadingVc: LoadingViewController?
+    var captureSession: AVCaptureSession!
     var tapRecognizer: UITapGestureRecognizer!
     var capturePhotoOutput: AVCapturePhotoOutput! // NEW
     var readyImage: UIImage!                        // NEW
@@ -86,6 +87,9 @@ class CameraViewController: UIViewController {
     }
     
     @objc func handleTap(sender: UIButton) {
+        //TODO: change this to push the loading v\
+        loadingVc = LoadingViewController.init()
+        navigationController?.pushViewController(loadingVc!, animated: true)
         capturePhoto()
     }
     
@@ -95,9 +99,8 @@ class CameraViewController: UIViewController {
                 fatalError("Did not recognize any text in this image")
             }
 
-            let resultsVc = ResultsViewController(image: self?.readyImage ?? UIImage(), annotations: result.annotations)
-
-            self?.navigationController?.pushViewController(resultsVc, animated: true)
+           // let resultsVc = ResultsViewController(image: self?.readyImage ?? UIImage(), annotations: result.annotations)
+            self!.loadingVc!.setParams(image: self?.readyImage ?? UIImage(), annotations: result.annotations)
         }
     }
     
