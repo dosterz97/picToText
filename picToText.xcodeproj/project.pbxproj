@@ -19,7 +19,7 @@
 		B6227E4623768C0B0041C864 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4323768C0B0041C864 /* CameraViewController.swift */; };
 		B6227E4723768C0B0041C864 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4423768C0B0041C864 /* ResultsViewController.swift */; };
 		B6227E4823768C0B0041C864 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227E4523768C0B0041C864 /* APIModels.swift */; };
-		B6227E4A23768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */; };
+		B6227E4A23768C280041C864 /* CUSTOM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6227E4923768C280041C864 /* CUSTOM.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		B6227E4323768C0B0041C864 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B6227E4423768C0B0041C864 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		B6227E4523768C0B0041C864 /* APIModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
-		B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; path = "Assets.xcassets/GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg"; sourceTree = "<group>"; };
+		B6227E4923768C280041C864 /* CUSTOM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = CUSTOM.jpg; path = Assets.xcassets/CUSTOM.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 				B6227E09237663830041C864 /* AppDelegate.swift */,
 				B6227E0B237663830041C864 /* ViewController.swift */,
 				B6227E10237663840041C864 /* Assets.xcassets */,
-				B6227E4923768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg */,
+				B6227E4923768C280041C864 /* CUSTOM.jpg */,
 				B6227E15237663840041C864 /* Info.plist */,
 			);
 			path = picToText;
@@ -278,7 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6227E11237663840041C864 /* Assets.xcassets in Resources */,
-				B6227E4A23768C280041C864 /* GENERIC-CUSTOM-SIGN-PORTRAIT-324x324.jpg in Resources */,
+				B6227E4A23768C280041C864 /* CUSTOM.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,8 +569,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8APYS2W8G4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = picToText/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -588,8 +589,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8APYS2W8G4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = picToText/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

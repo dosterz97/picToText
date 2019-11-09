@@ -13,7 +13,7 @@ class CameraViewController: UIViewController {
 
     var captureButton: UIButton!
     var artView: UIView!
-    var captureSession: AVCaptureSession!
+    var captureSession: AVCaptureSession?
     var tapRecognizer: UITapGestureRecognizer!
     var capturePhotoOutput: AVCapturePhotoOutput! // NEW
     var readyImage: UIImage!                        // NEW
@@ -28,65 +28,66 @@ class CameraViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        captureSession.startRunning()
+        captureSession?.startRunning()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        captureSession.stopRunning()
+        captureSession?.stopRunning()
     }
     private func setupCamera() {
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
+        guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
+            // we will use our local image for testing if we are on simulator
+            let image = UIImage(named: "CUSTOM.jpg")!
+            readyImage = image
+            return detectTextBox(for: image)
+        }
+        
         var input: AVCaptureDeviceInput
         do {
-            input = try AVCaptureDeviceInput(device: captureDevice!)
+            input = try AVCaptureDeviceInput(device: captureDevice)
         } catch {
             fatalError("Error configuring capture device: \(error)");
         }
+        
         captureSession = AVCaptureSession()
-        captureSession.addInput(input)
+        
+        if captureSession != nil {
+            captureSession!.addInput(input)
 
-        // Setup the preview view.
-        let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        videoPreviewLayer.frame = view.layer.bounds
-        view.layer.addSublayer(videoPreviewLayer)
-        
-        //configure capture button
-        captureButton = UIButton.init(type: .system)
-        
-        captureButton.backgroundColor = .gray
-        captureButton.layer.cornerRadius = 37
-        captureButton.layer.masksToBounds = true
-     
-        view.addSubview(captureButton)
+            // Setup the preview view.
+            let videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession!)
+            videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            videoPreviewLayer.frame = view.layer.bounds
+            view.layer.addSublayer(videoPreviewLayer)
+            
+            //configure capture button
+            captureButton = UIButton.init(type: .system)
+            
+            captureButton.backgroundColor = .gray
+            captureButton.layer.cornerRadius = 37
+            captureButton.layer.masksToBounds = true
+         
+            view.addSubview(captureButton)
 
-        captureButton.translatesAutoresizingMaskIntoConstraints = false
-        captureButton.addTarget(self, action: #selector(handleTap(sender:)), for: .touchUpInside)
-        captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        captureButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10.0).isActive = true
-        captureButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2).isActive = true
-        captureButton.heightAnchor.constraint(equalTo: captureButton.widthAnchor).isActive = true
-        
+            captureButton.translatesAutoresizingMaskIntoConstraints = false
+            captureButton.addTarget(self, action: #selector(handleTap(sender:)), for: .touchUpInside)
+            captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            captureButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10.0).isActive = true
+            captureButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2).isActive = true
+            captureButton.heightAnchor.constraint(equalTo: captureButton.widthAnchor).isActive = true
+            
+        }
     }
     
     private func setupPhotoOutput() {
         capturePhotoOutput = AVCapturePhotoOutput()
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
-        captureSession.addOutput(capturePhotoOutput)
+        captureSession?.addOutput(capturePhotoOutput)
     }
-    
-//    private func setupTapRecognizer() {
-//        tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-//        tapRecognizer?.numberOfTouchesRequired = 1
-//        tapRecognizer?.numberOfTouchesRequired = 1
-//        view.addGestureRecognizer(tapRecognizer)
-//    }
-    
     
     @objc func handleTap(sender: UIButton) {
         capturePhoto()
     }
-    
     
     func detectTextBox(for image: UIImage) {
         ImageToTextClient().gettext(from: image) { [weak self] result in
@@ -124,31 +125,31 @@ class CameraViewController: UIViewController {
         
         return newImage
     }
-
-    
 }
 
 
 extension CameraViewController : AVCapturePhotoCaptureDelegate {
-  private func capturePhoto() {
-    let photoSettings = AVCapturePhotoSettings()
-    photoSettings.isAutoStillImageStabilizationEnabled = true
-    photoSettings.isHighResolutionPhotoEnabled = true
-    photoSettings.flashMode = .auto
-    capturePhotoOutput?.capturePhoto(with: photoSettings, delegate: self)
-  }
+    private func capturePhoto() {
+        let photoSettings = AVCapturePhotoSettings()
+        photoSettings.isAutoStillImageStabilizationEnabled = true
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.flashMode = .auto
+        capturePhotoOutput?.capturePhoto(with: photoSettings, delegate: self)
+    }
 
-  func photoOutput(_ output: AVCapturePhotoOutput,
+    func photoOutput(_ output: AVCapturePhotoOutput,
                    didFinishProcessingPhoto photo: AVCapturePhoto,
                    error: Error?) {
     guard error == nil else {
-      fatalError("Failed to capture photo: \(String(describing: error))")
+        fatalError("Failed to capture photo: \(String(describing: error))")
     }
+        
     guard let imageData = photo.fileDataRepresentation() else {
-      fatalError("Failed to convert pixel buffer")
+        fatalError("Failed to convert pixel buffer")
     }
+    
     guard let image = UIImage(data: imageData) else {
-      fatalError("Failed to convert image data to UIImage")
+        fatalError("Failed to convert image data to UIImage")
     }
     readyImage = image;
     
